@@ -1,0 +1,2 @@
+!function(){"use strict";var myAngularFilter=angular.module("MyAngularFilter",[]);myAngularFilter.filter("filter1",function(){return function(item,num){return item+=num}})}();
+//# sourceMappingURL=filters.js.map

@@ -1,0 +1,5 @@
+@import "compass/css3";
+@import "ease";
+.ott-transition-all {
+  @include transition(all .6s $easeOutQuint .6s);
+}

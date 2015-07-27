@@ -1,0 +1,2 @@
+!function(){"use strict";var myAngularDir=angular.module("MyAngularDir",[]);myAngularDir.directive("ottHeightInit",function(){return{restrict:"A",replace:!1,link:function(scope,element){var eId=scope.$index;console.log(element),element.height(element.width()),$(window).off("resize."+eId).on("resize."+eId,function(){element.height(element.width()),console.count("resize:")})}}})}();
+//# sourceMappingURL=directives.js.map

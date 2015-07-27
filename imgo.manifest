@@ -1,0 +1,29 @@
+CACHE MANIFEST
+
+#html
+/index.html
+/tpls/form.html
+/tpls/user.html
+/tpls/home.html
+
+#css
+/css/common.css
+/widget/bootstrap/css/bootstrap.min.css
+
+
+#js
+/js/myUI/angular-ui-router.js
+/js/app.js
+/js/controllers.js
+/js/directives.js
+
+
+#images
+/images/logo2.png
+
+#widget
+/widget/jquery/jquery.js
+/widget/Angular/angular.min.js
+/widget/Angular/angular-animate.min.js
+
+#version 3

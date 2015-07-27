@@ -1,0 +1,36 @@
+@import "compass/css3";
+
+$ottInterval:10px;
+
+.ott-margin-top {
+  margin: {
+    top:$ottInterval / 2;
+  }
+}
+.ott-padding-top {
+  padding: {
+    top:$ottInterval / 2;
+  };
+}
+.ott-padding-bottom {
+  padding: {
+    bottom:$ottInterval / 2;
+  };
+}
+.ott-padding-left {
+  padding: {
+    left:$ottInterval / 2;
+  };
+}
+.ott-padding-right {
+  padding: {
+    right:$ottInterval / 2;
+  };
+}
+.ott-blur {
+  -webkit-filter: blur(5px); /* Chrome, Opera */
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false);
+}

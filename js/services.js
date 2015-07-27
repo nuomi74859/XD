@@ -1,0 +1,2 @@
+var bookStoreServices=angular.module("bookStoreServices",[]);bookStoreServices.service("bookStoreService_1",["$scope",function(){}]),bookStoreServices.service("bookStoreService_2",["$scope",function(){}]);
+//# sourceMappingURL=services.js.map

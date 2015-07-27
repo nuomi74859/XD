@@ -1,0 +1,70 @@
+@import "easy-animation";
+@import "ease";
+//.ott-animation-show {
+//  @include ea-animation(ott_animation_show, .6s, $easeOutQuint, 0s);
+//}
+
+.ng-enter {
+  z-index: 8888;
+}
+.ng-leave {
+  z-index: 9999;
+}
+.home.ng-enter {
+  @include ea-animation(ott_animation_show, .6s, $easeOutQuint, 0s);
+}
+.home.ng-leave {
+  @include ea-animation(ott_animation_hide, .6s, $easeOutQuint, 0s);
+}
+.other.ng-enter {
+  @include ea-animation(ott_animation_show, .6s, $easeOutQuint, 0s);
+}
+.other.ng-leave {
+  @include ea-animation(ott_animation_hide, .6s, $easeOutQuint, 0s);
+}
+.ott-animation-velocity {
+  width: 1000px;
+  @include ea-animation(ott_animation_velocity,.01s,$count:9999)
+}
+@include ea-keyframes(ott_animation_show){
+  0% {
+    opacity: 0;
+    @include ea-transform(scale(0));
+  }
+  100% {
+    opacity: 1;
+    @include ea-transform(scale(1));
+  }
+}
+@include ea-keyframes(ott_animation_hide){
+  0% {
+    opacity: 1;
+    @include ea-transform(scale(1));
+  }
+  100% {
+    opacity: 0;
+    @include ea-transform(scale(0));
+  }
+}
+
+.ott-jelly {
+  @include ea-animation(ott_jelly, .3s, ease, 0s);
+}
+
+@include ea-keyframes(ott_jelly){
+  0% {
+    @include ea-transform(scale(1,1));
+  }
+  25% {
+    @include ea-transform(scale(0.9,1.1));
+  }
+  50% {
+    @include ea-transform(scale(1.1,0.9));
+  }
+  75% {
+    @include ea-transform(scale(0.95,1.05));
+  }
+  100% {
+    @include ea-transform(scale(1,1));
+  }
+}
