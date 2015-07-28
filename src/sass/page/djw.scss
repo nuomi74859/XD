@@ -1,0 +1,92 @@
+.djw-warp {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  margin: {
+    top:10px;
+  };
+  padding: 20px;
+  background: #CCCCCC;
+  zoom:0.5;
+  //@include transform(scale(0.5));
+  //@include transform-origin(0,0);  //定义缩放中心
+}
+.djw-left {
+  width: 900px;
+}
+.djw-l-title {
+  margin: {
+    top:60px;
+    bottom: 60px;
+  };
+}
+.djw-l-video {
+  width: 900px;
+  height: 506px;
+  @include display-box;
+  @include box-align(center);
+  @include box-pack(center);
+  //@include box-orient(horizontal);
+  background: #E4E4E4;
+  &.focusBtn.on {
+    background: rgba(0,0,0,0.2);
+  }
+}
+.djw-l-info {
+  margin: {
+    top:60px;
+  };
+}
+.djw-right {
+  width: 620px;
+  height: 1080px;
+  overflow: hidden;
+  //overflow-y: auto;
+  position: absolute;
+  right: 100px;
+  top: 0;
+}
+.djw-r-box {
+  position: absolute;
+  top:0;
+  right: 0;
+}
+.djw-li {
+  width: 620px;
+  height: 190px;
+  position: relative;
+  padding: 10px;
+  margin: {
+    top:30px;
+  };
+  background:#E4E4E4;
+  &.focusBtn.on {
+    background: rgba(0,0,0,0.2);
+  }
+}
+.djw-r-img {
+  width: 266px;
+  height: 150px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  background: #AEAEAE;
+}
+.djw-r-time {
+  position: absolute;
+  font-size:24px;
+  color:#333333;
+  right:10px;
+  bottom:10px;
+}
+.djw-r-info {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  margin: {
+    top:10px;
+  };
+  font-size:30px;
+  color:#6B6B6B;
+}

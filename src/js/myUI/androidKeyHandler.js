@@ -63,7 +63,6 @@
                 AKH.allBtns.each(function (index, element) {
                     var o = $(element), offset = o.offset();
 
-
                     if(o.data('pos') && o.data('pos').indexOf('|')>0){
                         var posArr = o.data('pos').split('|');
                         if(posArr.length == 4){
@@ -126,7 +125,7 @@
 
 
                 if (AKH.disable && $keyCode != AKH.KEYS.BACK) {
-                    AKH.debugMsg.push('∞¥º¸: ' + $keyCode + ' ( AKH.disable=' + AKH.disable + ' )');
+                    AKH.debugMsg.push('ÊåâÈîÆ: ' + $keyCode + ' ( AKH.disable=' + AKH.disable + ' )');
                     return false;
                 }
 
@@ -170,7 +169,7 @@
                                 mustReturn =true;
                             }
                         }
-                        //œÚœ¬
+                        //Âêë‰∏ã
                         if ($keyCode == AKH.KEYS.DOWN) {
                             if(scrollElemMagrinTop==0 || scrollElemMagrinTop < (scrollElemHeight - scrollBoxHeigh)){
                                 if( (scrollElemMagrinTop+260) > (scrollElemHeight - scrollBoxHeigh)) {
@@ -299,14 +298,14 @@
                             var o = $(this);
                             o.html(o.html().toLowerCase());
                         });
-                        highilghtElement.html('¥Û–¥');
+                        highilghtElement.html('Â§ßÂÜô');
                         highilghtElement.removeClass('lowercase');
                         highilghtElement.addClass('uppercase');
                     } else if (highilghtElement.hasClass('uppercase')) {
                         keyboardBox.find('.letter').each(function () {
                             $(this).html($(this).html().toUpperCase());
                         });
-                        highilghtElement.html('–°–¥');
+                        highilghtElement.html('Â∞èÂÜô');
                         highilghtElement.removeClass('uppercase');
                         highilghtElement.addClass('lowercase');
                     } else if (highilghtElement.hasClass('tochar')) {
@@ -320,7 +319,7 @@
                         keyboardBox.find('.number').each(function (i) {
                             $(this).html(i);
                         });
-                        highilghtElement.html('◊÷∑˚');
+                        highilghtElement.html('Â≠óÁ¨¶');
                         highilghtElement.removeClass('tonumber');
                         highilghtElement.addClass('tochar');
                     } else {
@@ -602,7 +601,7 @@
                 } else {
                     $btn.attr('rename', $btn.text());
                 }
-                AKH.debugMsg.push('Ωπµ„£∫ [' + AKH.highilghtElement.attr('rename') + '] µΩ [' + $btn.attr('rename') + ']');
+                AKH.debugMsg.push('ÁÑ¶ÁÇπÔºö [' + AKH.highilghtElement.attr('rename') + '] Âà∞ [' + $btn.attr('rename') + ']');
 
                 $btn.addClass(AKH.highlight);
                 AKH.highilghtElement = $btn;
@@ -691,21 +690,21 @@
 
                 if (starcorExt.hasFocus().toString() == "false") {
                     console.log('nofocus exe:4.x.requestFocus');
-                    AKH.debugMsg.push('ŒﬁΩπµ„ exe:4.x.requestFocus');
+                    AKH.debugMsg.push('Êó†ÁÑ¶ÁÇπ exe:4.x.requestFocus');
                     starcorExt.requestFocus();
                 } else {
-                    AKH.debugMsg.push('»°µΩΩπµ„');
+                    AKH.debugMsg.push('ÂèñÂà∞ÁÑ¶ÁÇπ');
                 }
 
                 starcorExt.setKeyEventHandler(function(action, keyCode, keyName, metaState) {
                     AKH.keyEvent(keyCode, 'keymove');
-                    AKH.debugMsg.push('∞¥º¸: ' + keyCode + ' : ' + OS+ ' 4.X');
+                    AKH.debugMsg.push('ÊåâÈîÆ: ' + keyCode + ' : ' + OS+ ' 4.X');
                 });
                 AKH.debugMsg.push('setKeyEventHandler .... By 4.x');
             }else{
                 window.keymove = function(keyCode){
                     AKH.keyEvent(keyCode, 'keymove');
-                    AKH.debugMsg.push('∞¥º¸: ' + keyCode + ' : ' + OS+ ' 3.X');
+                    AKH.debugMsg.push('ÊåâÈîÆ: ' + keyCode + ' : ' + OS+ ' 3.X');
                 }
             }
         }
@@ -722,7 +721,7 @@
                     e.preventDefault();
                     return false;
                 } else {
-                    AKH.debugMsg.push('∞¥º¸: ' + e.keyCode + ' : ' + OS);
+                    AKH.debugMsg.push('ÊåâÈîÆ: ' + e.keyCode + ' : ' + OS);
                 }
             });
         }
@@ -731,7 +730,7 @@
             if (window.top.specialMessager) {
                 window.top.specialMessager.keyDown = function (key) {
                     AKH.keyEvent(window.SamsungKeys[key],'keyup');
-                    AKH.debugMsg.push('∞¥º¸: ' + window.SamsungKeys[key] + ' : ' + OS);
+                    AKH.debugMsg.push('ÊåâÈîÆ: ' + window.SamsungKeys[key] + ' : ' + OS);
 
                 }
             }

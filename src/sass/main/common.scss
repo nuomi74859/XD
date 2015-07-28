@@ -23,8 +23,8 @@ html {
 body {
   height: 100%;
   position: relative;
-  overflow: auto;
-  overflow-x: hidden;
+  //overflow: auto;
+  overflow: hidden;
   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -49,3 +49,4 @@ input,button {
 @import "../animation";
 @import "../index";
 @import "../page/main";
+@import "../page/djw";

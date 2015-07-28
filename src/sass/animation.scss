@@ -11,16 +11,16 @@
   z-index: 9999;
 }
 .home.ng-enter {
-  @include ea-animation(ott_animation_show, .6s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_show, .3s, $easeOutQuint, 0s);
 }
 .home.ng-leave {
-  @include ea-animation(ott_animation_hide, .6s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_hide, .3s, $easeOutQuint, 0s);
 }
 .other.ng-enter {
-  @include ea-animation(ott_animation_show, .6s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_show, .3s, $easeOutQuint, 0s);
 }
 .other.ng-leave {
-  @include ea-animation(ott_animation_hide, .6s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_hide, .3s, $easeOutQuint, 0s);
 }
 .ott-animation-velocity {
   width: 1000px;
