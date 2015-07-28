@@ -2,9 +2,10 @@
   position: relative;
   display: block;
   cursor: pointer;
-  background:rgba(220, 221, 230, 0.6);
+  color:whitesmoke;
+  background:rgba(0,0,0, 0.3);
   @include border-radius(4px);
 }
 .main-panel.focusBtn.on {
-  background: red;
+  background: rgba(0,0,0, 0.6);
 }

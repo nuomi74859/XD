@@ -27,9 +27,6 @@
                                 console.log('akh not found');
                             }
                         },500);
-
-                        //console.log('$viewContentLoaded');
-
                     });
                     //过渡动画加载完毕后
                 },
@@ -45,12 +42,16 @@
                 templateUrl:'/tpls/djw.html',
                 controller:function($scope,$timeout){
                     $scope.indexAnimate = false;
+                    $scope.viewAnimate = true;
                     $scope.djwNums = [1,1,1,1,1,1,1];
-                    console.log('djw');
                     $scope.$on('$viewContentLoaded',function(){
                         $timeout(function(){
+                            if(!window.videoIndex) {
+                                window.videoIndex = 1;
+                            }
+                            console.log('video index:',window.videoIndex);
                             if(typeof(AKH) != 'undefined' && AKH) {
-                                AKH.init();
+                                AKH.init(window.videoIndex);
                                 console.log('AKH')
                             }
                             else if(typeof(akh) != 'undefined' && akh) {
@@ -61,22 +62,45 @@
                                 console.log('akh not found');
                             }
                             var top = 0;
+                            //console.log(AKH.allBtns.eq(window.videoIndex));
+                            AKH.allBtns.eq(window.videoIndex).find('.glyphicon-play').addClass('play');
                             (function($){
-                                $(document).on('keydown', function(){
+                                $(document).on('keyup', function(){
                                     var $target = $('.focusBtn.on.djw-li');
-                                    var $parent = $target.parent();
-                                    var $dr = $('.djw-right');
-                                    var tOffset = $target.offset(), dOffset = $dr.offset();
-                                    console.log(tOffset,dOffset);
-                                    var tmp = tOffset.top - dOffset.top + $target.height() - $dr.height();
-                                    console.log(tmp);
-                                    if(tmp > 0) {
-                                        top = top - tmp;
-                                        $parent.animate({
-                                            'top':top
-                                        },200);
-                                        console.log('work',top);
+                                    if ($target.length > 0) {
+                                        var $parent = $target.parent();
+                                        var $dr = $('.djw-right');
+                                        var tOffset = $target.offset(), dOffset = $dr.offset();
+                                        //console.log(tOffset,dOffset);
+                                        var tmp0 = tOffset.top - dOffset.top + $target.height() - $dr.height();
+                                        var tmp1 = tOffset.top - dOffset.top;
+                                        //console.log(tmp0,tmp1);
+                                        if(tmp0 > 0) {
+                                            top = top - tmp0;
+                                            $parent.css({
+                                                'top':top
+                                            });
+                                            //console.log('work',top);
+                                        }
+                                        else if(tmp1 < 0){
+                                            top = top - tmp1;
+                                            $parent.css({
+                                                'top':top
+                                            });
+                                            //console.log('work',top);
+                                        }
                                     }
+
+                                });
+                                //AKH.allBtns = $(AKH.container + ' .' + AKH.selector).not('.'+AKH.disableClass).add($('.' + AKH.inputing));
+                                $('.djw-li').off().on('click',function(){
+                                    var $play = $(this).find('.glyphicon-play');
+                                    if($play.hasClass('play')){
+                                        window.location.hash = '#/djw/djw_fs';
+                                        window.videoIndex = $(this).index() + 1;
+                                    }
+                                    $('.play').removeClass('play');
+                                    $play.addClass('play');
                                 });
                             })(jQuery);
                         },500);
@@ -84,6 +108,23 @@
                         console.log('$viewContentLoaded')
                     });
                 }
+            }
+        ).state('djw.djw-fs',{
+                url:'/djw_fs',
+
+                views:{
+                    "fs":{
+                        templateUrl:'/tpls/djw_fullscreen.html',
+                        controller:function($scope){
+                            $scope.viewAnimate = false;
+                        }
+                    }
+                }
+                //templateUrl:'/tpls/djw_fullscreen.html',
+                //controller:function($scope){
+                //    $scope.viewAnimate = false;
+                //}
+
             }
         ).state('2',{
                 url:'/djw',

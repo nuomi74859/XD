@@ -59,7 +59,7 @@
             init: function ($start) {
                 AKH.allBtns = $(AKH.container + ' .' + AKH.selector).not('.'+AKH.disableClass).add($('.' + AKH.inputing));
 
-                console.log(AKH.allBtns);
+                //console.log(AKH.allBtns);
                 AKH.allBtns.each(function (index, element) {
                     var o = $(element), offset = o.offset();
 

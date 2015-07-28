@@ -7,9 +7,19 @@
   };
   padding: 20px;
   background: #CCCCCC;
-  zoom:0.5;
+  zoom:0.7;
   //@include transform(scale(0.5));
   //@include transform-origin(0,0);  //定义缩放中心
+}
+.djw-view {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.djw-panel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 .djw-left {
   width: 900px;
@@ -23,13 +33,24 @@
 .djw-l-video {
   width: 900px;
   height: 506px;
+  vertical-align: middle;
   @include display-box;
   @include box-align(center);
   @include box-pack(center);
-  //@include box-orient(horizontal);
   background: #E4E4E4;
+  font-size: 60px;
+
+  .djw-lv-info {
+    display: none;
+  }
   &.focusBtn.on {
     background: rgba(0,0,0,0.2);
+    .glyphicon-play {
+      display: none;
+    }
+    .djw-lv-info {
+      display: inline-block;
+    }
   }
 }
 .djw-l-info {
@@ -50,6 +71,7 @@
   position: absolute;
   top:0;
   right: 0;
+  @include transition(top .2s);
 }
 .djw-li {
   width: 620px;
@@ -63,13 +85,23 @@
   &.focusBtn.on {
     background: rgba(0,0,0,0.2);
   }
+  .glyphicon-play {
+    display: none;
+  }
+  .play {
+    display: inline-block;
+  }
 }
 .djw-r-img {
   width: 266px;
   height: 150px;
   position: relative;
   display: inline-block;
+  @include display-box;
+  @include box-align(center);
+  @include box-pack(center);
   vertical-align: top;
+  float: left;
   margin: 10px;
   background: #AEAEAE;
 }
@@ -83,10 +115,22 @@
 .djw-r-info {
   width: 300px;
   display: inline-block;
+  float:left;
   vertical-align: top;
   margin: {
     top:10px;
   };
   font-size:30px;
   color:#6B6B6B;
+}
+.djw-fs {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top:0;
+  left: 0;
+  @include display-box;
+  @include box-align(center);
+  @include box-pack(center);
+  background: #E4E4E4;
 }

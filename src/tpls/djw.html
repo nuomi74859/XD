@@ -1,23 +1,31 @@
 <div class="djw-warp">
-    <div class="djw-left">
-        <div class="djw-l-title">
-            <p style="font-size: 48px;color: #999999;">湖南卫视跨年演唱会</p>
-        </div>
-        <div class="djw-l-video focusBtn text-center ott-radius">
-            <span class="glyphicon glyphicon-play" style="font-size: 90px;vertical-align: middle;"></span>
-        </div>
-        <div class="djw-l-info text-center">
-            <p style="font-size: 40px;color: #999999;">张靓颖现场SHOW-终于等到你</p>
-        </div>
-    </div>
-    <div class="djw-right">
-        <div class="djw-r-box">
-            <div class="djw-li focusBtn ott-radius" ng-repeat="djwli in djwNums track by $index">
-                <div class="djw-r-img ott-radius">
-                    <span class="djw-r-time">00:30:30</span>
+    <!--视图切换容器-->
+    <div class="djw-view" ui-view="fs" ng-class="{true:'home',false:'other'}[viewAnimate]">
+        <!--操作面板-->
+        <div class="djw-panel">
+            <div class="djw-left">
+                <div class="djw-l-title">
+                    <p style="font-size: 48px;color: #999999;">湖南卫视跨年演唱会</p>
                 </div>
-                <div class="djw-r-info">
-                    <p>张靓颖现场show-终于等到你</p>
+                <div class="djw-l-video focusBtn text-center ott-radius" ui-sref="djw.djw-fs">
+                    <span class="glyphicon glyphicon-play"></span>
+                    <span class="djw-lv-info">按OK键/确认键全屏播放</span>
+                </div>
+                <div class="djw-l-info text-center">
+                    <p style="font-size: 40px;color: #999999;">张靓颖现场SHOW-终于等到你</p>
+                </div>
+            </div>
+            <div class="djw-right">
+                <div class="djw-r-box">
+                    <div class="djw-li focusBtn ott-radius" ng-repeat="djwli in djwNums track by $index">
+                        <div class="djw-r-img ott-radius">
+                            <span class="glyphicon glyphicon-play"></span>
+                            <span class="djw-r-time">00:30:30</span>
+                        </div>
+                        <div class="djw-r-info">
+                            <p>张靓颖现场show-终于等到你</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
