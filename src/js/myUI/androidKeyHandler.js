@@ -5,12 +5,12 @@
         var UA = navigator.userAgent, OS = '';
         if (UA.indexOf('Android') >= 0) {
             OS = 'Android';
-        } else if (UA.indexOf('Windows') >= 0) {
-            OS = 'Windows';
-        } else if (UA.indexOf('MAC OS X') >= 0) {
+        }else if (UA.indexOf('MAC OS X') >= 0) {
             OS = 'Android';
         }else if(UA.indexOf('SmartHub') >= 0){
             OS = 'Samsung';
+        }else {
+            OS = 'Windows';
         }
 
 

@@ -73,7 +73,7 @@
                             var top = 0;
                             //列表上下滚动
                             var scrollList = function(){
-                                var $target = $('.focusBtn.on.djw-li');
+                                var $target = jQuery('.focusBtn.on.djw-li');
                                 if ($target.length > 0) {
                                     var $parent = $target.parent();
                                     var $dr = $('.djw-right');
@@ -124,15 +124,15 @@
 
 
                             //每次按键检测位置移动
-                            $(document).on('keyup', function(){
+                            jQuery(document).on('keyup', function(){
                                 scrollList();
                             });
 
                             //结束loading动画
-                            $('.djw-l-video').addClass('djw-l-loading');
+                            jQuery('.djw-l-video').addClass('djw-l-loading');
 
-                            $('.djw-li').on('click',function(){
-                                var $this = $(this);
+                            jQuery('.djw-li').on('click',function(){
+                                var $this = jQuery(this);
                                 var $play = $this.find('.glyphicon-play');
                                 var $vip = $this.find('.vip-in');
 
@@ -154,13 +154,13 @@
                                 }
 
                                 //li播放标记
-                                $('.play').removeClass('play');
+                                jQuery('.play').removeClass('play');
                                 $play.addClass('play');
 
                                 //开始做loading动画
-                                $('.djw-l-video').removeClass('djw-l-loading');
+                                jQuery('.djw-l-video').removeClass('djw-l-loading');
                                 setTimeout(function(){
-                                    $('.djw-l-video').addClass('djw-l-loading');
+                                    jQuery('.djw-l-video').addClass('djw-l-loading');
                                     if($vip.length > 0){
 
                                     }
