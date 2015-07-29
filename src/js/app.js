@@ -64,28 +64,15 @@
                     $scope.$on('$stateChangeSuccess',function(){
                         console.log('djw 开始加载完成 开始加载自定义js');
                         $timeout(function(){
+                            //初始化 列表位置
                             if(!window.videoIndex) {
                                 window.videoIndex = 1;
                             }
-                            console.log('video index:',window.videoIndex);
-                            if(typeof(AKH) != 'undefined' && AKH) {
-                                AKH.init(window.videoIndex);
-                                console.log('AKH')
-                            }
-                            else if(typeof(akh) != 'undefined' && akh) {
-                                akh.init();
-                                console.log('akh')
-                            }
-                            else {
-                                console.log('akh not found');
-                            }
 
+                            //定义存储变量 与scroll有关
                             var top = 0;
-                            //console.log(AKH.allBtns.eq(window.videoIndex));
-                            AKH.allBtns.eq(window.videoIndex).find('.glyphicon-play').addClass('play');
-
                             //列表上下滚动
-                            $(document).on('keyup', function(){
+                            var scrollList = function(){
                                 var $target = $('.focusBtn.on.djw-li');
                                 if ($target.length > 0) {
                                     var $parent = $target.parent();
@@ -110,7 +97,35 @@
                                         //console.log('work',top);
                                     }
                                 }
+                            };
+                            console.log('video index:',window.videoIndex);
 
+                            //AKH初始化
+                            if(typeof(AKH) != 'undefined' && AKH) {
+                                AKH.init(window.videoIndex);
+
+                                //回到之前的位置
+                                setTimeout(function(){
+                                    scrollList();
+                                },30);
+                                console.log('AKH')
+                            }
+                            else if(typeof(akh) != 'undefined' && akh) {
+                                akh.init();
+                                console.log('akh')
+                            }
+                            else {
+                                console.log('akh not found');
+                            }
+
+
+                            //console.log(AKH.allBtns.eq(window.videoIndex));
+                            AKH.allBtns.eq(window.videoIndex).find('.glyphicon-play').addClass('play');
+
+
+                            //每次按键检测位置移动
+                            $(document).on('keyup', function(){
+                                scrollList();
                             });
 
                             //结束loading动画
