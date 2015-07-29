@@ -5,9 +5,8 @@
   margin: {
     top:10px;
   };
-  padding: 20px;
   background: #CCCCCC;
-  zoom:0.7;
+  zoom:0.6;
   //@include transform(scale(0.5));
   //@include transform-origin(0,0);  //定义缩放中心
 }
@@ -23,6 +22,9 @@
 }
 .djw-left {
   width: 900px;
+  position: absolute;
+  top:60px;
+  left: 80px;
 }
 .djw-l-title {
   margin: {
@@ -40,15 +42,59 @@
   background: #E4E4E4;
   font-size: 60px;
 
+  .cssload-container {
+    display: block;
+  }
+  .glyphicon-play {
+    display: none;
+  }
   .djw-lv-info {
     display: none;
   }
+  .vip-info {
+    display: none;
+  }
+  &.djw-l-loading {
+    .cssload-container {
+      display: none;
+    }
+    .glyphicon-play {
+      display: inline-block;
+    }
+  }
+  &.djw-l-loading.vip-in {
+    .cssload-container {
+      display: none;
+    }
+    .glyphicon-play {
+      display: none;
+    }
+    .vip-info {
+      display: inline-block;
+    }
+  }
+
+  //焦点在上面时
   &.focusBtn.on {
     background: rgba(0,0,0,0.2);
     .glyphicon-play {
       display: none;
     }
     .djw-lv-info {
+      display: inline-block;
+    }
+  }
+  &.focusBtn.on.vip-in {
+    .cssload-container {
+      display: none;
+    }
+    .glyphicon-play {
+      display: none;
+    }
+    .djw-lv-info {
+      display: none;
+    }
+    .vip-info {
       display: inline-block;
     }
   }
@@ -104,6 +150,18 @@
   float: left;
   margin: 10px;
   background: #AEAEAE;
+}
+.vip-icon {
+  display: none;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  &.vip-in {
+    display: inline-block;
+  }
+  &.vip-out {
+    display: none;
+  }
 }
 .djw-r-time {
   position: absolute;

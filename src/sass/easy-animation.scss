@@ -90,12 +90,12 @@ $ea-prefix-for-spec:         true !default; // required for keyframe mixin
 
 // Example usage:
 // @include ea-animation(wrap_s0_p1, 2s, ease, 0s, infinite);
-@mixin ea-animation($name, $duration, $function: ease, $delay: 0s, $count: 1, $mode: forwards) {
-  -webkit-animation: $name $duration $function $delay $count $mode;
-  -moz-animation: $name $duration $function $delay $count $mode;
-  -ms-animation: $name $duration $function $delay $count $mode;
-  -o-animation: $name $duration $function $delay $count $mode;
-  animation: $name $duration $function $delay $count $mode;
+@mixin ea-animation($opt) {
+  -webkit-animation: $opt;
+  -moz-animation: $opt ;
+  -ms-animation:$opt ;
+  -o-animation: $opt ;
+  animation: $opt ;
 }
 
 

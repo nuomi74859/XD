@@ -11,21 +11,21 @@
   z-index: 9999;
 }
 .home.ng-enter {
-  @include ea-animation(ott_animation_show, .3s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_show .3s $easeOutQuint 0s);
 }
 .home.ng-leave {
-  @include ea-animation(ott_animation_hide, .3s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_hide .3s $easeOutQuint 0s);
 }
 .other.ng-enter {
-  @include ea-animation(ott_animation_show, .3s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_show .3s $easeOutQuint 0s);
 }
 .other.ng-leave {
-  @include ea-animation(ott_animation_hide, .3s, $easeOutQuint, 0s);
+  @include ea-animation(ott_animation_hide .3s $easeOutQuint 0s);
 }
-.ott-animation-velocity {
-  width: 1000px;
-  @include ea-animation(ott_animation_velocity,.01s,$count:9999)
-}
+//.ott-animation-velocity {
+//  width: 1000px;
+//  @include ea-animation(ott_animation_velocity .01s $count:9999)
+//}
 @include ea-keyframes(ott_animation_show){
   0% {
     opacity: 0;
@@ -47,9 +47,9 @@
   }
 }
 
-.ott-jelly {
-  @include ea-animation(ott_jelly, .3s, ease, 0s);
-}
+//.ott-jelly {
+//  @include ea-animation(ott_jelly .3s, ease, 0s);
+//}
 
 @include ea-keyframes(ott_jelly){
   0% {
@@ -68,3 +68,54 @@
     @include ea-transform(scale(1,1));
   }
 }
+
+
+//css loading
+.cssload-container {
+  width: 100%;
+  height: 49px;
+  text-align: center;
+}
+
+.cssload-zenith {
+  width: 49px;
+  height: 49px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  box-shadow: 3px 3px 1px rgb(0,0,0);
+  //animation: cssload-spin 690ms infinite linear;
+  //-o-animation: cssload-spin 690ms infinite linear;
+  //-ms-animation: cssload-spin 690ms infinite linear;
+  //-webkit-animation: cssload-spin 690ms infinite linear;
+  //-moz-animation: cssload-spin 690ms infinite linear;
+  @include ea-animation(cssload-spin .6s  linear infinite);
+}
+
+@include ea-keyframes(cssload-spin) {
+  100% {
+    @include ea-transform(rotate(360deg));
+  }
+}
+
+//@keyframes cssload-spin {
+//  100%{ transform: rotate(360deg); transform: rotate(360deg); }
+//}
+//
+//@-o-keyframes cssload-spin {
+//  100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+//}
+//
+//@-ms-keyframes cssload-spin {
+//  100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+//}
+//
+//@-webkit-keyframes cssload-spin {
+//  100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+//}
+//
+//@-moz-keyframes cssload-spin {
+//  100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+//}
