@@ -8,7 +8,7 @@
         $urlRouterProvider.otherwise('/main');
         $stateProvider.state('main',{
                 url:'/main',
-                templateUrl:'/tpls/main.html',
+                templateUrl:'tpls/main.html',
                 controller:function($scope, $timeout){
                     $scope.indexAnimate = true;
                     $scope.ottPanels = ['djw','2','3','4','5','6'];
@@ -39,7 +39,7 @@
             }
         ).state('djw',{
                 url:'/djw',
-                templateUrl:'/tpls/djw.html',
+                templateUrl:'tpls/djw.html',
                 controller:function($scope,$timeout,$state){
                     $scope.indexAnimate = false;
                     $scope.viewAnimate = true;
@@ -177,7 +177,7 @@
 
                 views:{
                     "fs":{
-                        templateUrl:'/tpls/djw_fullscreen.html',
+                        templateUrl:'tpls/djw_fullscreen.html',
                         controller:function($scope){
                             console.log('fs 开始');
                             $scope.viewAnimate = false;
@@ -189,7 +189,7 @@
                 url:'/djw_vip',
                 views:{
                     'fs':{
-                        templateUrl:'/tpls/djw_vip.html',
+                        templateUrl:'tpls/djw_vip.html',
                         controller:function($scope){
                             $scope.viewAnimate = false;
                         }
@@ -199,7 +199,7 @@
 
         ).state('2',{
                 url:'/djw',
-                templateUrl:'/tpls/duojiwei.html',
+                templateUrl:'tpls/duojiwei.html',
                 controller:function($scope){
                     $scope.indexAnimate = false;
                     $scope.user = {
@@ -213,7 +213,7 @@
             }
         ).state('3',{
                 url:'/test',
-                templateUrl:'/tpls/test.html',
+                templateUrl:'tpls/test.html',
                 controller:function($scope){
                     $scope.indexAnimate = false;
                     $scope.user = {
@@ -227,7 +227,7 @@
             }
         ).state('4',{
                 url:'/velocity',
-                templateUrl:'/tpls/velocity.html',
+                templateUrl:'tpls/velocity.html',
                 controller:function($scope){
                     $scope.indexAnimate = false;
                 }
