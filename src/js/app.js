@@ -232,7 +232,137 @@
                     $scope.indexAnimate = false;
                 }
             }
-        );
+        ).state('5',{
+                url:'/video',
+                templateUrl:'tpls/video.html',
+                controller:function ($scope,$http) {
+                    $scope.indexAnimate = false;
+                    var videoData;
+                    var listNum = 0;
+                    //console.log(videoData.length);
+                    //var maxNum = videoData.length - 1;
+                    var videWarp = $('#video-warp');
+                    var videoTar = $('.video-tar');
+                    var videoInfo = $('.video-info');
+                    var videoDataShow = $('.video-data');
+                    var videoBegin = 0;
+                    var videoTimeInfo = [];
+                    //var videoTarInfo = {};
+                    var videoBeginTime;
+                    //var videoTimeNum = 0;
+                    videWarp.val(listNum);
+                    $http.get('/videoData.json').success(function(data){
+                        //console.log(data);
+                        var videoData = data.videoList;
+                        var timeSelect = data.timeSelect;
+                        var maxNum = videoData.length - 1;
+                        //console.log(videoData);
+                        //videoTar.get(0).currentTime = videoData[listNum].time;
+                        if(timeSelect == 1){
+                            videoTar.get(0).currentTime = videoData[listNum].time1;
+                        }
+                        if(timeSelect == 2){
+                            videoTar.get(0).currentTime = videoData[listNum].time2;
+                        }
+                        videoBeginTime = (new Date()).valueOf();
+                        $(document).keyup(function (n) {
+                            //console.log(n.keyCode);
+                            if(n.keyCode == 13 && videoBegin == 0) {
+                                videoBegin = 1;
+                                alert("开始测试");
+                                videoBeginTime = (new Date()).valueOf();
+                                videoTimeInfo = [];
+                            }
+                            else if(n.keyCode == 13 && videoBegin == 1) {
+                                videoBegin = 2;
+                                alert("结束测试");
+                                var videoTarInfo = {};
+                                videoTarInfo['name'] = parseInt(videWarp.val()) + 1;
+                                videoTarInfo['time'] = ((new Date()).valueOf() - videoBeginTime) / 1000;
+                                console.log(videoTarInfo);
+                                videoTimeInfo.push(videoTarInfo);
+                                console.log(videoTimeInfo);
+                                $.each(videoTimeInfo, function(n, v){
+                                    videoDataShow.append(
+                                        $('<p>').text('台：' + v['name'] + '，时长：' + v['time'])
+                                    );
+                                });
+                                //videoDataShow.text(videoTimeInfo);
+                                videoDataShow.show();
+                            }
+                            if(n.keyCode == 40) {
+                                listNum ++;
+                            }
+                            if(n.keyCode == 38) {
+                                listNum --;
+                            }
+                            if(listNum < 0) {
+                                listNum = 0;
+                            }
+                            if(listNum > maxNum) {
+                                listNum = maxNum;
+                            }
+                            //console.log(videoData[listNum].name);
+                            if(videWarp.val() != listNum) {
+                                //console.log(videWarp.val());
+                                var videoTarInfo = {};
+                                videoTarInfo['name'] = parseInt(videWarp.val()) + 1;
+                                videoTarInfo['time'] = ((new Date()).valueOf() - videoBeginTime) / 1000;
+                                console.log(videoTarInfo);
+                                videoTimeInfo.push(videoTarInfo);
+                                console.log(videoTimeInfo);
+                                videWarp.val(listNum);
+                                videoTar.get(0).src = data.location + '/' + videoData[listNum].name + '.' + videoData[listNum].format;
+                                if(timeSelect == 1){
+                                    videoTar.get(0).currentTime = videoData[listNum].time1;
+                                }
+                                if(timeSelect == 2){
+                                    videoTar.get(0).currentTime = videoData[listNum].time2;
+                                }
+                                videoBeginTime = (new Date()).valueOf();
+                                //videoTar.get(0).currentTime = videoData[listNum].time;
+                                videoInfo.text(listNum + 1 + '台');
+                                /*videWarp.empty().append(
+                                    $('<video>').attr({
+                                        'src':data.location + '/' + videoData[listNum].name + '.' + videoData[listNum].format,
+                                        'autoplay':'autoplay',
+                                        'loop':'loop',
+                                        'width':'100%',
+                                        'height':'100%',
+                                        'class':'video-tar'
+                                    }),
+                                    $('<div>').addClass('video-info').text(listNum + 1 + '台')
+                                )*/
+                            }
+                        })
+                    });
+
+                }
+        }).state('6',{
+            url:'/jisuan',
+            templateUrl:'tpls/jisuan.html',
+            controller:function($scope){
+                $scope.indexAnimate = false;
+                var leijia = function (a,b,n,x) {
+                    var re = 1;
+                    for(var i=1;i<n;i++){
+                        //console.log(Math.pow(i,2));
+                        re = re + a * Math.pow(i,b)
+                    }
+                    re = re * x / n;
+                    return re;
+                };
+                //console.log(leijia(1,2,2,1));
+                var liucun = function(a,b,n,x){
+                    var dau = 0;
+                    for(var i = 1;i <= n;i ++) {
+                        dau = dau + leijia(a,b,i,x);
+                    }
+                    return dau;
+                };
+                console.log(leijia(0.2081,-0.329,180,7000),liucun(0.2081,-0.329,180,7000))
+            }
+        })
     });
     myAngularApp.run(function(){
         console.log('run')

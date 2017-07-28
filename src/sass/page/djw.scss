@@ -8,7 +8,7 @@
   background: #CCCCCC;
   zoom:0.6;
   //@include transform(scale(0.5));
-  //@include transform-origin(0,0);  //¶¨ÒåËõ·ÅÖÐÐÄ
+  //@include transform-origin(0,0);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 .djw-view {
   width: 100%;
@@ -36,9 +36,9 @@
   width: 900px;
   height: 506px;
   vertical-align: middle;
-  @include display-box;
-  @include box-align(center);
-  @include box-pack(center);
+  //@include display-box;
+  //@include box-align(center);
+  //@include box-pack(center);
   background: #E4E4E4;
   font-size: 60px;
 
@@ -74,7 +74,7 @@
     }
   }
 
-  //½¹µãÔÚÉÏÃæÊ±
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±
   &.focusBtn.on {
     background: rgba(0,0,0,0.2);
     .glyphicon-play {
@@ -143,9 +143,9 @@
   height: 150px;
   position: relative;
   display: inline-block;
-  @include display-box;
-  @include box-align(center);
-  @include box-pack(center);
+  //@include display-box;
+  //@include box-align(center);
+  //@include box-pack(center);
   vertical-align: top;
   float: left;
   margin: 10px;
@@ -187,8 +187,8 @@
   position: absolute;
   top:0;
   left: 0;
-  @include display-box;
-  @include box-align(center);
-  @include box-pack(center);
+  //@include display-box;
+  //@include box-align(center);
+  //@include box-pack(center);
   background: #E4E4E4;
 }

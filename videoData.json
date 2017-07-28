@@ -1,0 +1,36 @@
+{
+    "videoList" : [
+        {
+            "name":"1",
+            "format":"mp4",
+            "time1":20,
+            "time2":0
+        },
+        {
+            "name":"2",
+            "format":"mp4",
+            "time1":50,
+            "time2":0
+        },
+        {
+            "name":"3",
+            "format":"mp4",
+            "time1":100,
+            "time2":0
+        },
+        {
+            "name":"4",
+            "format":"mp4",
+            "time1":200,
+            "time2":0
+        },
+        {
+            "name":"4",
+            "format":"mp4",
+            "time1":150,
+            "time2":0
+        }
+    ],
+    "location":"data",
+    "timeSelect":1
+}
