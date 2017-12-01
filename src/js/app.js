@@ -343,24 +343,38 @@
             templateUrl:'tpls/jisuan.html',
             controller:function($scope){
                 $scope.indexAnimate = false;
+                //第n天的DAU
                 var leijia = function (a,b,n,x) {
                     var re = 1;
                     for(var i=1;i<n;i++){
                         //console.log(Math.pow(i,2));
                         re = re + a * Math.pow(i,b)
                     }
-                    re = re * x / n;
+                    re = re * x;
                     return re;
                 };
                 //console.log(leijia(1,2,2,1));
+                //全部周期DAU均值
                 var liucun = function(a,b,n,x){
                     var dau = 0;
                     for(var i = 1;i <= n;i ++) {
                         dau = dau + leijia(a,b,i,x);
                     }
-                    return dau;
+                    return dau / n;
                 };
-                console.log(leijia(0.2081,-0.329,180,7000),liucun(0.2081,-0.329,180,7000))
+                var a = 0.2251,b = -0.304,n = 365,x = 44984;
+                var userData = [];
+                $('.sub').click(function(){
+                    userData = [];
+                    $('.userInput').each(function(n,v){
+                        userData.push($(v).val())
+                    });
+                    console.log(userData);
+                    $('#this-dau').text(leijia(userData[0],userData[1],userData[2],userData[3]));
+                    $('#this-alldau-average').text(liucun(userData[0],userData[1],userData[2],userData[3]))
+                });
+
+                console.log(leijia(a,b,n,x),liucun(a,b,n,x))
             }
         })
     });
